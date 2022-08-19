@@ -4,6 +4,8 @@
  * Platform specific tweaks
  */
 
+@use "sass:math";
+
 .platform-ios.platform-cordova {
   // iOS has a status bar which sits on top of the header.
   // Bump down everything to make room for it. However, if
@@ -125,7 +127,7 @@
 
     .item-content {
       padding: $item-padding
-        calc(constant(safe-area-inset-right) + #{(ceil( ($item-padding * 3) + ($item-padding / 3)) - 5)})
+        calc(constant(safe-area-inset-right) + #{(ceil( ($item-padding * 3) + math.div($item-padding, 3)) - 5)})
         $item-padding
         calc(constant(safe-area-inset-left) + #{$item-padding});
     }
